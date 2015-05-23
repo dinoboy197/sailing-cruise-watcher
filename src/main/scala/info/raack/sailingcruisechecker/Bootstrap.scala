@@ -11,5 +11,5 @@ class GuiceModule extends AbstractModule with ScalaModule {
 }
 
 object Bootstrap extends App {
-  Guice.createInjector(new GuiceModule).getInstance(classOf[SailingCruiseChecker])
+  Guice.createInjector(new GuiceModule).getInstance(classOf[SailingCruiseChecker]).run()
 }

@@ -1,6 +1,7 @@
 package info.raack.sailingcruisechecker
 
 class Http {
-  
-  println("initialized Http")
+  def get(url: String): String = {
+    scala.io.Source.fromURL(url).mkString
+  }
 }
