@@ -10,11 +10,11 @@ class SailingCruiseChecker @Inject() (http: Http) {
     (0 until 20).map(now.plusDays(_)).foreach(date => {
       val url = getURLForDate(date)
 
-        val pageContent = http.get(url)
+      val pageContent = http.get(url)
 
-        if (containsDays(pageContent)) {
-          println(s"${date} has openings")
-        }
+      if (containsDays(pageContent)) {
+        println(s"${date} has openings - ${url}")
+      }
     })
   }
 
