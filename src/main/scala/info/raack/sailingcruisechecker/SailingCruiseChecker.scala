@@ -6,8 +6,10 @@ import javax.inject.Named
 
 import org.log4s.getLogger
 
+// mark a class with @Named to create an instance of it in the object graph
 @Named
-class SailingCruiseChecker @Inject() (val http: Http) {
+// use @Inject() followed by constructor arguments to have Spring wire in instances of these classes
+class SailingCruiseChecker @Inject() (val http: Http, val sampleProcessor: SampleProcessor) {
   private[this] val logger = getLogger
 
   def run() {
