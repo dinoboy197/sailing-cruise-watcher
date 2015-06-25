@@ -3,7 +3,10 @@ package info.raack.sailingcruisechecker
 import java.time.LocalDate
 import javax.inject.Inject
 
+import org.log4s.getLogger
+
 class SailingCruiseChecker @Inject() (http: Http) {
+  private[this] val logger = getLogger
 
   def run() {
     val now = LocalDate.now
@@ -13,7 +16,7 @@ class SailingCruiseChecker @Inject() (http: Http) {
       val pageContent = http.get(url)
 
       if (containsDays(pageContent)) {
-        println(s"${date} has openings - ${url}")
+        logger.info(s"${date} has openings - ${url}")
       }
     })
   }

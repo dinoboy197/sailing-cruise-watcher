@@ -10,7 +10,10 @@ scalaVersion := "2.11.6"
 libraryDependencies ++= Seq(
   "com.google.inject" % "guice" % "[4.0,5.0)",
   "javax.inject" % "javax.inject" % "[1]",
-  "net.codingwell" %% "scala-guice" % "4.0.0-beta5"
+  "net.codingwell" %% "scala-guice" % "4.0.0-beta5",
+  // logging: log4s -> slf4j -> logback
+  "org.log4s" %% "log4s" % "1.1.5",
+  "ch.qos.logback" % "logback-classic" % "1.1.3"
 )
 
 // main class
