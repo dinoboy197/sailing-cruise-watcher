@@ -15,3 +15,6 @@ libraryDependencies ++= Seq(
 
 // main class
 mainClass in (Compile, packageBin) := Some("info.raack.sailingcruisechecker.Bootstrap")
+
+// use pack plugin to pack all libraries for easy deployment with roller deploytool and no nasty uberjar file collissions
+packAutoSettings
