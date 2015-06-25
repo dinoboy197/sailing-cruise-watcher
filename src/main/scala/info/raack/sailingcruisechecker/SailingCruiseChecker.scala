@@ -2,10 +2,12 @@ package info.raack.sailingcruisechecker
 
 import java.time.LocalDate
 import javax.inject.Inject
+import javax.inject.Named
 
 import org.log4s.getLogger
 
-class SailingCruiseChecker @Inject() (http: Http) {
+@Named
+class SailingCruiseChecker @Inject() (val http: Http) {
   private[this] val logger = getLogger
 
   def run() {

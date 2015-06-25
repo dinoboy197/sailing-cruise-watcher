@@ -8,9 +8,11 @@ scalaVersion := "2.11.6"
 
 // libraries
 libraryDependencies ++= Seq(
-  "com.google.inject" % "guice" % "[4.0,5.0)",
+  "org.springframework" % "spring-context" % "4.1.6.RELEASE" exclude ("commons-logging", "commons-logging"),
+  // spring uses commons-logging, so redirect these logs to slf4j
+  "org.slf4j" % "jcl-over-slf4j" % "1.7.12",
+  "org.springframework" % "spring-beans" % "4.1.6.RELEASE",
   "javax.inject" % "javax.inject" % "[1]",
-  "net.codingwell" %% "scala-guice" % "[4.0.0,5.0.0)",
   // logging: log4s -> slf4j -> logback
   "org.log4s" %% "log4s" % "1.1.5",
   "ch.qos.logback" % "logback-classic" % "1.1.3"
