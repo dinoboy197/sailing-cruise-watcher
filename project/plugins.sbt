@@ -1,5 +1,3 @@
-logLevel := Level.Warn
-
 // sbt-pack plugin for collecting jars for deployment
 addSbtPlugin("org.xerial.sbt" % "sbt-pack" % "0.6.2")
 

@@ -23,3 +23,6 @@ mainClass in (Compile, packageBin) := Some("info.raack.sailingcruisechecker.Boot
 
 // use pack plugin to pack all libraries for easy deployment with roller deploytool and no nasty uberjar file collissions
 packAutoSettings
+
+logLevel in pack := Level.Warn
+logLevel in Global := Level.Warn
