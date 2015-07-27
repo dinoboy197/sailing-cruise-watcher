@@ -1,6 +1,7 @@
 package info.raack.sailingcruisechecker
 
 import java.time.LocalDate
+import javax.annotation.PostConstruct
 import javax.inject.Inject
 import javax.inject.Named
 
@@ -12,12 +13,12 @@ import org.log4s.getLogger
 class SailingCruiseChecker @Inject() (val http: Http, val sampleProcessor: SampleProcessor) {
   private[this] val logger = getLogger
 
+  @PostConstruct
   def run() {
     val now = LocalDate.now
     (0 until 20).map(now.plusDays(_)).foreach(date => {
       val url = getURLForDate(date)
 
-      logger.info(s"checking url $url")
       val pageContent = http.get(url)
 
       if (containsDays(pageContent)) {
