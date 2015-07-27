@@ -17,6 +17,7 @@ class SailingCruiseChecker @Inject() (val http: Http, val sampleProcessor: Sampl
     (0 until 20).map(now.plusDays(_)).foreach(date => {
       val url = getURLForDate(date)
 
+      logger.info(s"checking url $url")
       val pageContent = http.get(url)
 
       if (containsDays(pageContent)) {
